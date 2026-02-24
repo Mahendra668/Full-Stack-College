@@ -21,11 +21,11 @@ css/style.css
 js/script.js  
 images/
 
-## ▶ How to Run
+## ▶ How to Run 
 1. Download or clone the repository
 2. Open index.html in your browser
 
-WEBSITE STRUCTURE :
+## WEBSITE STRUCTURE
 
 Simple-website/
 │
