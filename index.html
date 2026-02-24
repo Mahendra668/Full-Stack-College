@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            margin-top: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0077ff;
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to My Interactive Website</h1>
+
+    <div class="container">
+
+       
+        <h2>Image Slideshow</h2>
+        <img id="slider" src="https://picsum.photos/id/1015/300/200">
+        <br><br>
+        <button onclick="changeImage()">Change Image</button>
+
+        <hr>
+
+     
+        <h2>Contact Form</h2>
+
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Enter your name"><br>
+            <input type="email" id="email" placeholder="Enter your email"><br>
+            <textarea id="message" placeholder="Enter your message"></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="message" id="successMsg"></div>
+
+    </div>
+
+<script>
+   
+    var images = [
+        "https://picsum.photos/id/1015/300/200",
+        "https://picsum.photos/id/1016/300/200",
+        "https://picsum.photos/id/1025/300/200"
+    ];
+
+    var index = 0;
+
+    function changeImage() {
+        index++;
+        if(index >= images.length) {
+            index = 0;
+        }
+        document.getElementById("slider").src = images[index];
+    }
+
+    
+    function validateForm() {
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+        if(name == "" || email == "" || message == "") {
+            alert("All fields are required!");
+            return false;
+        }
+
+        document.getElementById("successMsg").innerHTML =
+            "Thank you " + name + "! Your message has been submitted.";
+
+        alert("Form Submitted Successfully!");
+
+        return false; 
+    }
+</script>
+
+</body>
+</html>
